@@ -24,7 +24,6 @@ class BookingsController extends Controller
             return abort(401);
         }
 
-
         if (request('show_deleted') == 1) {
             if (!Gate::allows('booking_delete')) {
                 return abort(401);

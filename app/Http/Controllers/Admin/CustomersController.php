@@ -21,8 +21,7 @@ class CustomersController extends Controller
         if (! Gate::allows('customer_access')) {
             return abort(401);
         }
-
-
+        
         if (request('show_deleted') == 1) {
             if (! Gate::allows('customer_delete')) {
                 return abort(401);
@@ -64,8 +63,6 @@ class CustomersController extends Controller
         }
         $customer = Customer::create($request->all());
 
-
-
         return redirect()->route('admin.customers.index');
     }
 
@@ -103,8 +100,6 @@ class CustomersController extends Controller
         }
         $customer = Customer::findOrFail($id);
         $customer->update($request->all());
-
-
 
         return redirect()->route('admin.customers.index');
     }

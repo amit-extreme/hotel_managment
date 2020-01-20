@@ -13,18 +13,32 @@ use App\Http\Requests\Admin\StoreCategoriesRequest;
 
 class CategoryController extends Controller
 {
+    /**
+     * Display a listing of Category.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $categories=Category::all();
         return view('admin.categories.index', compact('categories'));
     }
 
+   /**
+     * create category form.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        //show template
         return view('admin.categories.create');
     }
 
+    /**
+     * Store Catagory.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function store(StoreCategoriesRequest $request)
     {
         if (! Gate::allows('category_create')) {
@@ -68,12 +82,8 @@ class CategoryController extends Controller
         }
         $category = Category::findOrFail($id);
         $category->update($request->all());
-
-
-
         return redirect()->route('admin.categories.index');
     }
-
 
     /**
      * Remove Booking from storage.
@@ -145,6 +155,5 @@ class CategoryController extends Controller
 
         return redirect()->route('admin.bookings.index');
     }
-    
 
 }

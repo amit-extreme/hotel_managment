@@ -22,7 +22,6 @@ class CountriesController extends Controller
             return abort(401);
         }
 
-
         if (request('show_deleted') == 1) {
             if (! Gate::allows('country_delete')) {
                 return abort(401);
@@ -60,9 +59,6 @@ class CountriesController extends Controller
             return abort(401);
         }
         $country = Country::create($request->all());
-
-
-
         return redirect()->route('admin.countries.index');
     }
 
@@ -97,9 +93,6 @@ class CountriesController extends Controller
         }
         $country = Country::findOrFail($id);
         $country->update($request->all());
-
-
-
         return redirect()->route('admin.countries.index');
     }
 
@@ -116,7 +109,6 @@ class CountriesController extends Controller
             return abort(401);
         }
         $customers = \App\Customer::where('country_id', $id)->get();
-
         $country = Country::findOrFail($id);
 
         return view('admin.countries.show', compact('country', 'customers'));

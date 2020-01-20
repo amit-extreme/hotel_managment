@@ -23,7 +23,6 @@ class UpdateRoomsRequest extends FormRequest
     public function rules()
     {
         return [
-            
             'room_number' => 'required',
             'floor' => 'max:2147483647|required|numeric',
             'description' => 'required',

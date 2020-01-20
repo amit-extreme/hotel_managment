@@ -22,8 +22,7 @@ class UsersController extends Controller
             return abort(401);
         }
 
-
-                $users = User::all();
+        $users = User::all();
 
         return view('admin.users.index', compact('users'));
     }
@@ -56,8 +55,6 @@ class UsersController extends Controller
             return abort(401);
         }
         $user = User::create($request->all());
-
-
 
         return redirect()->route('admin.users.index');
     }
@@ -96,8 +93,6 @@ class UsersController extends Controller
         }
         $user = User::findOrFail($id);
         $user->update($request->all());
-
-
 
         return redirect()->route('admin.users.index');
     }

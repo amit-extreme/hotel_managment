@@ -3,7 +3,6 @@
 @section('content')
     <h3 class="page-title">@lang('quickadmin.find-room.title')</h3>
     <div class="panel panel-default">
-
         {!! Form::open(['method' => 'post', 'route' => ['admin.find_rooms.index']]) !!}
         <div class="row" style="margin-top: 5px;">
             <div class="col-xs-9">

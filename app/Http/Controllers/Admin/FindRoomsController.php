@@ -9,6 +9,13 @@ use App\Http\Controllers\Controller;
 
 class FindRoomsController extends Controller
 {
+
+    /**
+     * Search rooms and show room details.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function index(Request $request)
     {
         if (!Gate::allows('find_room_access')) {

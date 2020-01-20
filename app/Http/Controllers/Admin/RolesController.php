@@ -22,8 +22,7 @@ class RolesController extends Controller
             return abort(401);
         }
 
-
-                $roles = Role::all();
+        $roles = Role::all();
 
         return view('admin.roles.index', compact('roles'));
     }
@@ -53,8 +52,6 @@ class RolesController extends Controller
             return abort(401);
         }
         $role = Role::create($request->all());
-
-
 
         return redirect()->route('admin.roles.index');
     }
@@ -91,8 +88,6 @@ class RolesController extends Controller
         $role = Role::findOrFail($id);
         $role->update($request->all());
 
-
-
         return redirect()->route('admin.roles.index');
     }
 
@@ -109,7 +104,6 @@ class RolesController extends Controller
             return abort(401);
         }
         $users = \App\User::where('role_id', $id)->get();
-
         $role = Role::findOrFail($id);
 
         return view('admin.roles.show', compact('role', 'users'));

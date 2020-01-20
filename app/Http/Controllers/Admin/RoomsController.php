@@ -23,7 +23,6 @@ class RoomsController extends Controller
             return abort(401);
         }
 
-
         if (request('show_deleted') == 1) {
             if (! Gate::allows('room_delete')) {
                 return abort(401);
@@ -64,8 +63,6 @@ class RoomsController extends Controller
         }
         $room = Room::create($request->all());
 
-
-
         return redirect()->route('admin.rooms.index');
     }
 
@@ -102,8 +99,6 @@ class RoomsController extends Controller
         $room = Room::findOrFail($id);
         $room->update($request->all());
 
-
-
         return redirect()->route('admin.rooms.index');
     }
 
@@ -120,7 +115,6 @@ class RoomsController extends Controller
             return abort(401);
         }
         $bookings = \App\Booking::where('room_id', $id)->get();
-
         $room = Room::findOrFail($id);
 
         return view('admin.rooms.show', compact('room', 'bookings'));

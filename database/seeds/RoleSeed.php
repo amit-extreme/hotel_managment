@@ -15,7 +15,6 @@ class RoleSeed extends Seeder
             
             ['id' => 1, 'title' => 'Administrator (can create other users)',],
             ['id' => 2, 'title' => 'Simple user',],
-
         ];
 
         foreach ($items as $item) {
